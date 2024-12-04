@@ -1,0 +1,262 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Background */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    z-index: -1;
+    animation: backgroundAnimation 15s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    }
+    50% {
+        background: linear-gradient(135deg, #3b8d99, #6e45e2);
+    }
+    100% {
+        background: linear-gradient(135deg, #88d3ce, #3b8d99);
+    }
+}
+
+/* Content */
+.content {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Homepage Section */
+.homepage h1 {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.homepage .interact-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #3b8d99;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.homepage .interact-btn:hover {
+    background: #6e45e2;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+.scroll-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.scroll-link:hover {
+    background: #fff;
+    color: #3b8d99;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    margin: 20px;
+}
+
+.auth-buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background: #6e45e2;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.auth-buttons button:hover {
+    background: #3b8d99;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+/* About Section */
+.about-section {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    margin: 40px auto;
+    width: 80%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    color: #3b8d99;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* To-Do List Popup */
+.top-right-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background: #6e45e2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.top-right-button:hover {
+    background: #3b8d99;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #3b8d99;
+}
+
+.todo-container {
+    margin-top: 20px;
+}
+
+.todo-container input {
+    padding: 10px;
+    font-size: 1rem;
+    width: calc(100% - 120px);
+    border: 2px solid #3b8d99;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.todo-container .add-button {
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    background: #3b8d99;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.todo-container .add-button:hover {
+    background: #6e45e2;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+#exerciseList {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+#exerciseList li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: #f9f9f9;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timer-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.timer-controls button {
+    padding: 5px 10px;
+    background: #3b8d99;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.timer-controls button:hover {
+    background: #6e45e2;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.timer-controls span {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #6e45e2;
+}
