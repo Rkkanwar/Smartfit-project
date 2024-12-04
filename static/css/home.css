@@ -143,3 +143,75 @@
         font-size: 16px;
     }
 }
+
+
+
+
+/* Style for the 'Go to Exercises' Button */
+.exercise-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #ff5722; /* Orange color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+}
+
+.exercise-btn:hover {
+    background-color: #e64a19; /* Darker orange when hovered */
+}
+
+/* Optional: Centering the button inside the homepage */
+.homepage .exercise-btn {
+    display: inline-block;
+    text-align: center;
+}
+
+
+
+
+
+/* Auth Box Styling */
+#auth-box {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 2; /* Ensure box is on top of other content */
+}
+
+#auth-box .auth-content h3 {
+    color: #ff5722;
+    margin-bottom: 20px;
+}
+
+#auth-box .auth-content button {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+#auth-box .auth-content button:hover {
+    background-color: #e64a19;
+}
+
+#auth-box .auth-content p {
+    color: #333;
+    font-size: 16px;
+}

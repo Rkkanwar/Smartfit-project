@@ -1,0 +1,81 @@
+/* Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.exercise-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.exercise-card {
+    width: 250px;
+    margin: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exercise-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.exercise-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.exercise-card h3 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.exercise-details {
+    display: none;
+    margin-top: 15px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Expanded state */
+.exercise-card.expanded {
+    transform: scale(1.05);  /* Slight zoom effect when expanded */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.exercise-details h4 {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
+}
+
+.exercise-details ul {
+    padding-left: 20px;
+}
+
+.exercise-details ul li {
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .exercise-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .exercise-card {
+        width: 80%;
+        margin: 10px 0;
+    }
+}

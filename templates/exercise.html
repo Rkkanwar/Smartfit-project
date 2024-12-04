@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/exercise.css') }}">
+</head>
+<body>
+    <div class="exercise-container">
+        {% for exercise in exercises %}
+            <div class="exercise-card" onclick="toggleDetails('{{ exercise.name }}')">
+                <img src="{{ exercise.image }}" alt="{{ exercise.name }}" class="exercise-image">
+                <h3>{{ exercise.name }}</h3>
+            </div>
+            <div class="exercise-details" id="{{ exercise.name }}" style="display: none;">
+                <h4>Description</h4>
+                <p>{{ exercise.description }}</p>
+                <h4>Steps to Perform</h4>
+                <ul>
+                    {% for step in exercise.steps %}
+                        <li>{{ step }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Targeted Muscles</h4>
+                <ul>
+                    {% for muscle in exercise.targeted_muscles %}
+                        <li>{{ muscle }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Benefits</h4>
+                <ul>
+                    {% for benefit in exercise.benefits %}
+                        <li>{{ benefit }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function toggleDetails(exerciseName) {
+            var details = document.getElementById(exerciseName);
+            if (details.style.display === "none") {
+                details.style.display = "block";
+                details.previousElementSibling.classList.add('expanded');  // Add 'expanded' class to the clicked card
+            } else {
+                details.style.display = "none";
+                details.previousElementSibling.classList.remove('expanded');  // Remove 'expanded' class when closed
+            }
+        }
+    </script>
+</body>
+</html>
