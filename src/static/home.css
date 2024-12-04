@@ -1,0 +1,145 @@
+ /* General Styles */
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent body scroll, but allow scrolling in sections */
+}
+
+/* Background Container */
+.background {
+    position: fixed; /* Keep the background fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Set the desired opacity */
+    z-index: -1; /* Behind other content */
+}
+
+/* Main Content Container */
+.content {
+    position: relative; /* Allow normal positioning of content */
+    z-index: 1; /* Ensure content is above the background */
+    overflow-y: auto; /* Allow vertical scrolling */
+    height: 100vh; /* Full height for scrolling */
+}
+
+/* Homepage Section */
+.homepage {
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sign In/Sign Up Button */
+.auth-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.auth-buttons button {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #ff5722;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.auth-buttons button:hover {
+    background-color: #e64a19;
+}
+
+/* Homepage Header */
+.homepage h1 {
+    font-size: 50px;
+    margin: 20px 0;
+    color: #ff5722;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.homepage .interact-btn {
+    padding: 15px 30px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #ff5722;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.homepage .interact-btn:hover {
+    background-color: #e64a19;
+}
+
+.homepage .scroll-link {
+    position: absolute;
+    bottom: 30px;
+    font-size: 18px;
+    color: #ff5722;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.homepage .scroll-link:hover {
+    text-decoration: underline;
+}
+
+/* About Us Section */
+.about-section {
+    padding: 60px 20px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.3);
+    border-top: 2px solid #ff5722;
+    border-radius: 10px 10px 0 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.about-section h2 {
+    font-size: 42px;
+    color: #ff5722;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.about-section p {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    color: #ddd;
+}
+
+.about-section p:last-child {
+    margin-bottom: 0;
+}
+
+.about-section p strong {
+    color: #ff5722;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .about-section h2 {
+        font-size: 32px;
+    }
+
+    .about-section p {
+        font-size: 16px;
+    }
+}
