@@ -13,7 +13,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("");
+    background-image: url("/static/images/DALL·E\ 2024-12-05\ 15.00.12\ -\ A\ modern\,\ AI-powered\ gym\ assistance\ concept\ image\ for\ a\ homepage.\ The\ design\ features\ a\ clean\ interface\ with\ a\ central\ headline\ displaying\ \'SmartFit\'\ .webp");
     background-size: cover;
     background-position: center;
     opacity: 0.5; /* Set the desired opacity */
@@ -44,6 +44,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
+    
 }
 
 .auth-buttons button {
@@ -55,6 +56,7 @@
     border-radius: 5px;
     margin-left: 10px;
     cursor: pointer;
+    border-radius: 0px;
 }
 
 .auth-buttons button:hover {
@@ -68,6 +70,7 @@
     color: #ff5722;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-left: 70px;
 }
 
 .homepage .interact-btn {
@@ -79,6 +82,8 @@
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
+    margin-left: 70px;
+    border-radius: 0px;
 }
 
 .homepage .interact-btn:hover {
@@ -92,6 +97,7 @@
     color: #ff5722;
     text-decoration: none;
     font-weight: bold;
+    margin-left: 70px;
 }
 
 .homepage .scroll-link:hover {
@@ -107,6 +113,8 @@
     border-top: 2px solid #ff5722;
     border-radius: 10px 10px 0 0;
     background-color: rgba(0, 0, 0, 0.6);
+    
+    
 }
 
 .about-section h2 {
@@ -115,6 +123,8 @@
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-left: 70px;
+    
 }
 
 .about-section p {
@@ -123,6 +133,7 @@
     max-width: 800px;
     margin: 0 auto 20px;
     color: #ddd;
+    
 }
 
 .about-section p:last-child {
@@ -158,6 +169,8 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 30px;
+    margin-left: 70px;
+    border-radius: 0px;
 }
 
 .exercise-btn:hover {
@@ -188,6 +201,8 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
     z-index: 2; /* Ensure box is on top of other content */
+    border-radius: 0px;
+    margin-left: 40px;
 }
 
 #auth-box .auth-content h3 {
@@ -205,6 +220,7 @@
     font-size: 16px;
     margin: 10px 0;
     width: 100%;
+    border-radius: 0px;
 }
 
 #auth-box .auth-content button:hover {
