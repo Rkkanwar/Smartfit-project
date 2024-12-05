@@ -84,6 +84,10 @@
         document.getElementById('login-btn').addEventListener('click', function() {
             window.location.href = "{{ url_for('login') }}"; // Redirect to login page
         });
+        // Redirect to Log In page
+        document.getElementById('sign-in-btn').addEventListener('click', function() {
+            window.location.href = "{{ url_for('login') }}"; // Redirect to login page
+        });
 
         // Continue to Chatbot page without signing in
         document.getElementById('continue-btn').addEventListener('click', function() {
