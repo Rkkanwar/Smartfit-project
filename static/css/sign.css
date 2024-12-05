@@ -1,15 +1,29 @@
+/* sign.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .form-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
 }
 
 h2 {
     text-align: center;
     color: #333;
+    margin-bottom: 1.5rem;
 }
 
 form {
@@ -18,39 +32,51 @@ form {
 }
 
 label {
-    margin-top: 10px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
     color: #555;
 }
 
 input {
-    margin: 5px 0;
-    padding: 10px;
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 1rem;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
 }
 
 button {
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #28a745;
+    background-color: #ff5722; /* Submit button color */
     color: white;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #e64a19; /* Hover color */
 }
 
 p {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 1rem;
+    color: #666;
 }
 
 a {
-    color: #007bff;
+    color: #e64a19;
     text-decoration: none;
+    font-weight: bold;
 }
 
 a:hover {

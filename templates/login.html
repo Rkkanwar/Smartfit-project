@@ -17,8 +17,9 @@
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
             <button type="submit">Login</button>
+            <button type="button" id="backBtn" style="margin-top: 10px;" onclick="location.href='/';">Back</button>
         </form>
-        <p>Don't have an account? <a href=href = "{{ url_for('signup') }}">Sign up here</a></p>
+        <p>Don't have an account? <a href="/signup">Sign up here</a></p>
     </div>
     <script src="scripts.js"></script>
 </body>
