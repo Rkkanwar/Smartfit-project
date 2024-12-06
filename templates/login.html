@@ -9,7 +9,14 @@
 <body>
     <div class="form-container">
         <h2>SmartFit Login</h2>
-        <form id="loginForm">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p style="color: red;">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form id="loginForm" action="/login" method="post">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
@@ -21,6 +28,6 @@
         </form>
         <p>Don't have an account? <a href="/signup">Sign up here</a></p>
     </div>
-    <script src="scripts.js"></script>
+
 </body>
 </html>
