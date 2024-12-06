@@ -12,7 +12,11 @@
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
+                    {%if category == 'error'%}
                     <p style="color: red;">{{ message }}</p>
+                    {%else%}
+                    <p style="color: green;">{{ message }}</p>
+                    {%endif%}
                 {% endfor %}
             {% endif %}
         {% endwith %}

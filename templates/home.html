@@ -9,15 +9,31 @@
 <body>
     <!-- Background Image -->
     <div class="background"></div>
+   
 
     <!-- Main Content -->
     <div class="content">
         <!-- Sign In/Sign Up Section -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+           <p>{{message}}</p>
+        {% endif %}
+    {% endwith %}
         <div class="auth-buttons" id="auth-buttons">
             <a href="/login">
                 <button id="sign-in-btn">Sign In</button>
             </a>
         </div>
+
+        <div  id="flash-messages">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <p class=" flash-message {{ category }}">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            </div>
         
         
 
@@ -109,6 +125,17 @@
             if (!authBox.contains(event.target) && event.target !== document.getElementById('interact-btn')) {
                 authBox.style.display = 'none'; // Hide the auth box if clicked outside
             }
+
+            
+            setTimeout(function() {
+            var flashMessages = document.querySelectorAll('.flash-message');
+            flashMessages.forEach(function(msg) {
+                msg.classList.add('fade-out'); // Trigger fade-out effect
+            });
+        }, 5000); // 5 seconds delay before fading out
+
+
+
         });
     </script>
 </body>

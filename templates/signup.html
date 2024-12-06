@@ -9,6 +9,17 @@
 <body>
     <div class="form-container">
         <h2>SmartFit Signup</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {%if category == 'error'%}
+                    <p style="color: red;">{{ message }}</p>
+                    {%else%}
+                    <p style="color: green;">{{ message }}</p>
+                    {%endif%}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <form id="signupForm" action="/signup" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" autocomplete="off" placeholder="Enter your full name" required>

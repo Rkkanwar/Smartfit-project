@@ -68,7 +68,7 @@ def login():
         
         if record and password:
             session['email'] = email
-            flash("Login successful!" , "success")
+            flash('Login successful!', 'login_success')
             print("success")
             return redirect(url_for("main"))
         else:
@@ -81,8 +81,10 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('email',None)
-    flash("You have been logged out." , "info")
+    flash('You have successfully logged out.', 'logout_success')
+
     return redirect(url_for('home'))
+
 
 @app.route("/chatbot")
 def chatbot():
