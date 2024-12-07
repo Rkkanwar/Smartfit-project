@@ -7,27 +7,29 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .chat-container {
+    position: relative;
+}
+
+.chat-container {
     width: 100vw;
     height: 100vh;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .chat-header {
+    position: relative;
+}
+
+.chat-header {
     background-color: #0084ff;
     color: white;
     font-size: 20px;
     text-align: center;
     padding: 15px;
     font-weight: bold;
-  }
-  
-  .chat-messages {
+}
+
+.chat-messages {
     flex: 1;
     padding: 15px;
     overflow-y: auto;
@@ -36,46 +38,46 @@ body {
     gap: 10px;
     scroll-behavior: smooth;
     background-color: #e5ddd5;
-  }
-  
-  .chat-message {
+}
+
+.chat-message {
     max-width: 70%;
     padding: 10px 15px;
     border-radius: 15px;
     font-size: 14px;
     line-height: 1.4;
     display: inline-block;
-  }
-  
-  .bot-message {
+}
+
+.bot-message {
     align-self: flex-start;
     background-color: #f0f0f0;
     color: #000;
-  }
-  
-  .user-message {
+}
+
+.user-message {
     align-self: flex-end;
     background-color: #0084ff;
     color: #fff;
-  }
-  
-  .chat-footer {
+}
+
+.chat-footer {
     background-color: #f0f2f5;
     padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     border-top: 1px solid #ccc;
-  }
-  
-  .suggestions {
+}
+
+.suggestions {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: flex-start;
-  }
-  
-  .chat-button {
+}
+
+.chat-button {
     padding: 10px 15px;
     background-color: #e5e5e5;
     color: #000;
@@ -83,28 +85,28 @@ body {
     border-radius: 15px;
     cursor: pointer;
     font-size: 14px;
-  }
-  
-  .chat-button:hover {
+}
+
+.chat-button:hover {
     background-color: #ccc;
-  }
-  
-  .input-section {
+}
+
+.input-section {
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-  
-  #chat-input {
+}
+
+#chat-input {
     flex: 1;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 20px;
     outline: none;
-  }
-  
-  #send-btn {
+}
+
+#send-btn {
     background-color: #0084ff;
     color: #fff;
     border: none;
@@ -112,8 +114,37 @@ body {
     border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
-  }
-  
-  #send-btn:hover {
+}
+
+#send-btn:hover {
     background-color: #005bb5;
-  }
+}
+
+/* Align buttons */
+.home-btn,
+.exercise-btn {
+    position: absolute;
+    top: 10px;
+    background-color: #0084ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.home-btn {
+    left: 10px;
+}
+
+.exercise-btn {
+    right: 10px;
+}
+
+/* Hover effect for buttons */
+.home-btn:hover,
+.exercise-btn:hover {
+    background-color: #005bb5;
+}
