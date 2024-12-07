@@ -13,7 +13,7 @@
     width: 300px;
     text-align: center;
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 0px;
     background: #f9f9f9;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -54,7 +54,7 @@
     font-size: large;
     background: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 0px;
     width: 50%;
     max-height: 80%; /* Ensures the modal doesn't overflow */
     overflow-y: auto; /* Adds scrollable content if details are long */
@@ -112,4 +112,163 @@ ul li {
 
 .exercise-modal h1{
     text-align: center;
+}
+
+/* Search Bar Styling */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#search-bar {
+    padding: 10px;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    width: 300px;
+    border-radius: 0px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+#search-button {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: #000;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+
+
+#search-button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/*Your list button */
+
+#your-list-button {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: #000;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 1200px;
+    margin-top: 22px;
+    transform: translateY(-50%); /* Correct for vertical misalignment */
+}
+
+#your-list-button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* To-Do List Modal */
+.todo-list-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.todo-list-content {
+    background: #ccc;
+    padding: 20px;
+    border-radius: 0px;
+    width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+/* Close button for To-Do List */
+.close-todo {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-todo:hover {
+    color: #f00;
+}
+
+/* Styling for To-Do List */
+#todo-input {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    font-size: large;
+    width: 80%;
+    margin: 10px 0;
+    border-radius: 0px;
+    border: 1px solid #ccc;
+}
+
+#add-todo {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px 20px;
+    font-size: large;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+#add-todo:hover {
+    background-color: crimson;
+    color: #000;
+}
+
+/* To-Do List Item */
+#todo-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#todo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+#todo-list li .delete-btn {
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#todo-list li .delete-btn:hover {
+    background: darkred;
+}
+
+/* Ensure buttons match the theme */
+#your-list-button, #add-todo {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
 }
