@@ -20,3 +20,18 @@ The application is built with Flask (Python) for the backend and uses HTML, CSS,
 
 ## Folder Structure
 
+
+
+##Dependencies
+
+Firstly go to the main folder where all the main files (like )
+
+For macos
+```bash
+sudo npm install express body-parser cors @google/generative-ai dotenv
+```
+
+For windows 
+```bash
+npm install express body-parser cors @google/generative-ai dotenv
+```
