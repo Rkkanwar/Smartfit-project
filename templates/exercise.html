@@ -112,7 +112,7 @@
         }
     }
 
-    
+
     // Toggle the To-Do List modal
     function toggleTodoList() {
         const todoListModal = document.getElementById("todo-list-modal");
@@ -165,7 +165,28 @@
 
     document.addEventListener("mouseup", () => {
         isDragging = false;
+    })
+    // Function to search exercises based on the input
+function searchExercises() {
+    // Get the value from the search bar and convert it to lowercase for case-insensitive search
+    const searchTerm = document.getElementById("search-bar").value.toLowerCase();
+    
+    // Get all the exercise cards
+    const exerciseCards = document.querySelectorAll(".exercise-card");
+
+    // Loop through each exercise card
+    exerciseCards.forEach(card => {
+        const exerciseName = card.getAttribute("data-name").toLowerCase(); // Get the exercise name
+
+        // If the exercise name contains the search term, show the card, otherwise hide it
+        if (exerciseName.includes(searchTerm)) {
+            card.style.display = "block";  // Show card
+        } else {
+            card.style.display = "none";  // Hide card
+        }
     });
+}
+
 </script>
 </body>
 </html>

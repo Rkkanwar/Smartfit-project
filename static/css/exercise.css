@@ -173,7 +173,7 @@ ul li {
 
 /* To-Do List Modal */
 .todo-list-modal {
-    display: flex;
+    display: fixed;
     justify-content: center;
     align-items: center;
     position: fixed;
