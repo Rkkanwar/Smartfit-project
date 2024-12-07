@@ -7,48 +7,98 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/exercise.css') }}">
 </head>
 <body>
+    <!-- Exercise Cards -->
     <div class="exercise-container">
         {% for exercise in exercises %}
-            <div class="exercise-card" onclick="toggleDetails('{{ exercise.name }}')">
-                <img src="{{ exercise.image }}" alt="{{ exercise.name }}" class="exercise-image">
-                <h3>{{ exercise.name }}</h3>
-            </div>
-            <div class="exercise-details" id="{{ exercise.name }}" style="display: none;">
-                <h4>Description</h4>
-                <p>{{ exercise.description }}</p>
-                <h4>Steps to Perform</h4>
-                <ul>
-                    {% for step in exercise.steps %}
-                        <li>{{ step }}</li>
-                    {% endfor %}
-                </ul>
-                <h4>Targeted Muscles</h4>
-                <ul>
-                    {% for muscle in exercise.targeted_muscles %}
-                        <li>{{ muscle }}</li>
-                    {% endfor %}
-                </ul>
-                <h4>Benefits</h4>
-                <ul>
-                    {% for benefit in exercise.benefits %}
-                        <li>{{ benefit }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
+        <div class="exercise-card" data-name="{{ exercise.name }}"
+             data-image="{{ exercise.image }}"
+             data-description="{{ exercise.description }}"
+             data-steps="{{ exercise.steps|join(';') }}"
+             data-muscles="{{ exercise.targeted_muscles|join(';') }}"
+             data-benefits="{{ exercise.benefits|join(';') }}"
+             onclick="showDetails(this)">
+            <img src="{{ exercise.image }}" alt="{{ exercise.name }}" class="exercise-image">
+            <h3>{{ exercise.name }}</h3>
+        </div>
         {% endfor %}
     </div>
 
+    <!-- Modal for Exercise Details -->
+    <div id="exercise-modal" class="exercise-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeDetails()">&times;</span>
+            <img id="modal-image" alt="Exercise Image" class="modal-image">
+            <h1 id="modal-name"></h1>
+
+            <h4>Description</h4>
+            <p id="modal-description"></p>
+            <h4>Steps to Perform</h4>
+            <ul id="modal-steps"></ul>
+            <h4>Targeted Muscles</h4>
+            <ul id="modal-muscles"></ul>
+            <h4>Benefits</h4>
+            <ul id="modal-benefits"></ul>
+        </div>
+    </div>
+
     <script>
-        function toggleDetails(exerciseName) {
-            var details = document.getElementById(exerciseName);
-            if (details.style.display === "none") {
-                details.style.display = "block";
-                details.previousElementSibling.classList.add('expanded');  // Add 'expanded' class to the clicked card
-            } else {
-                details.style.display = "none";
-                details.previousElementSibling.classList.remove('expanded');  // Remove 'expanded' class when closed
-            }
+        function showDetails(cardElement) {
+            // Get details from the data attributes
+            const name = cardElement.getAttribute('data-name');
+            const image = cardElement.getAttribute('data-image');
+            const description = cardElement.getAttribute('data-description');
+            const steps = cardElement.getAttribute('data-steps').split(';');
+            const muscles = cardElement.getAttribute('data-muscles').split(';');
+            const benefits = cardElement.getAttribute('data-benefits').split(';');
+
+            // Populate modal with exercise details
+            document.getElementById("modal-name").innerText = name;
+            document.getElementById("modal-image").src = image;
+            document.getElementById("modal-description").innerText = description;
+
+            // Populate steps
+            const stepsList = document.getElementById("modal-steps");
+            stepsList.innerHTML = "";
+            steps.forEach(step => {
+                const li = document.createElement("li");
+                li.innerText = step;
+                stepsList.appendChild(li);
+            });
+
+            // Populate muscles
+            const musclesList = document.getElementById("modal-muscles");
+            musclesList.innerHTML = "";
+            muscles.forEach(muscle => {
+                const li = document.createElement("li");
+                li.innerText = muscle;
+                musclesList.appendChild(li);
+            });
+
+            // Populate benefits
+            const benefitsList = document.getElementById("modal-benefits");
+            benefitsList.innerHTML = "";
+            benefits.forEach(benefit => {
+                const li = document.createElement("li");
+                li.innerText = benefit;
+                benefitsList.appendChild(li);
+            });
+
+            // Show modal
+            document.getElementById("exercise-modal").style.display = "block";
         }
+
+        function closeDetails() {
+            // Hide modal
+            document.getElementById("exercise-modal").style.display = "none";
+        }
+
+        // Hide modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById("exercise-modal");
+            if (event.target === modal) {
+                closeDetails();
+            }
+        };
     </script>
 </body>
 </html>
