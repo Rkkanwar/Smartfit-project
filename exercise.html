@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/exercise.css') }}">
+</head>
+<body>
+<!-- Search Bar Section -->
+<div class="search-container">
+    <input type="text" id="search-bar" placeholder="Search exercises..." oninput="searchExercises()">
+    <button id="search-button" onclick="searchExercises()">Search</button>
+    <!-- "Your List" Button -->
+    <button id="your-list-button" onclick="toggleTodoList()">Your List</button>
+</div>
+
+<!-- To-Do List Modal -->
+<div id="todo-list-modal" class="todo-list-modal" style="display: none;">
+    <div class="todo-list-content">
+        <span class="close-todo" onclick="closeTodoList()">&times;</span>
+        <h2 id="todo-list-header">Your To-Do List</h2> <!-- Added ID for dragging -->
+        <input type="text" id="todo-input" placeholder="Type an exercise...">
+        <button id="add-todo" onclick="addExercise()">Add</button>
+        <ul id="todo-list"></ul>
+    </div>
+</div>
+
+<!-- Exercise Cards -->
+<div class="exercise-container">
+     <!-- added new slot for equipment -->
+    {% for exercise in exercises %}
+    <div class="exercise-card" data-name="{{ exercise.name }}"
+         data-image="{{ exercise.image }}"
+         data-equipment="{{exercise.equipment}}"  
+         data-description="{{ exercise.description }}"
+         data-steps="{{ exercise.steps|join(';') }}"  
+         data-muscles="{{ exercise.targeted_muscles|join(';') }}"
+         data-benefits="{{ exercise.benefits|join(';') }}"
+         onclick="showDetails(this)">
+        <img src="{{ exercise.image }}" alt="{{ exercise.name }}" class="exercise-image">
+        <h3>{{ exercise.name }}</h3>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Modal for Exercise Details -->
+<div id="exercise-modal" class="exercise-modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeDetails()">&times;</span>
+        <img id="modal-image" alt="Exercise Image" class="modal-image">
+        <h1 id="modal-name"></h1>
+        <!--model for equipment-->
+        <h4>Equipment</h4>
+        <p id="modal-equipment"></p>
+
+        <h4>Description</h4>
+        <p id="modal-description"></p>
+        <h4>Steps to Perform</h4>
+        <ul id="modal-steps"></ul>
+        <h4>Targeted Muscles</h4>
+        <ul id="modal-muscles"></ul>
+        <h4>Benefits</h4>
+        <ul id="modal-benefits"></ul>
+    </div>
+</div>
+
+<script>
+    function showDetails(cardElement) {
+        console.log("Exercise clicked");  // Debugging
+        const name = cardElement.getAttribute('data-name');
+        const image = cardElement.getAttribute('data-image');
+        const equipment=cardElement.getAttribute('data-equipment');
+        const description = cardElement.getAttribute('data-description');
+        const steps = cardElement.getAttribute('data-steps').split(';');
+        const muscles = cardElement.getAttribute('data-muscles').split(';');
+        const benefits = cardElement.getAttribute('data-benefits').split(';');
+
+        document.getElementById("modal-name").innerText = name;
+        document.getElementById("modal-image").src = image;
+        document.getElementById("modal-equipment").innerText = equipment;  
+        document.getElementById("modal-description").innerText = description;
+
+        const stepsList = document.getElementById("modal-steps");
+        stepsList.innerHTML = "";
+        steps.forEach(step => {
+            const li = document.createElement("li");
+            li.innerText = step;
+            stepsList.appendChild(li);
+        });
+
+        const musclesList = document.getElementById("modal-muscles");
+        musclesList.innerHTML = "";
+        muscles.forEach(muscle => {
+            const li = document.createElement("li");
+            li.innerText = muscle;
+            musclesList.appendChild(li);
+        });
+
+        const benefitsList = document.getElementById("modal-benefits");
+        benefitsList.innerHTML = "";
+        benefits.forEach(benefit => {
+            const li = document.createElement("li");
+            li.innerText = benefit;
+            benefitsList.appendChild(li);
+        });
+
+        document.getElementById("exercise-modal").style.display = "block";
+    }
+
+    function closeDetails() {
+        document.getElementById("exercise-modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById("exercise-modal");
+        if (event.target === modal) {
+            closeDetails();
+        }
+    }
+
+
+    // Toggle the To-Do List modal
+    function toggleTodoList() {
+        const todoListModal = document.getElementById("todo-list-modal");
+        if (todoListModal.style.display === "none" || todoListModal.style.display === "") {
+            todoListModal.style.display = "flex";  // Open the modal
+        } else {
+            todoListModal.style.display = "none";  // Close the modal
+        }
+    }
+
+    // Close the To-Do List modal
+    function closeTodoList() {
+        document.getElementById("todo-list-modal").style.display = "none";
+    }
+
+    // Add exercise to the To-Do List
+    function addExercise() {
+        const exerciseName = document.getElementById("todo-input").value.trim();
+        if (exerciseName) {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `${exerciseName} <button class="delete-btn" onclick="deleteExercise(this)">&#10005;</button>`;
+            document.getElementById("todo-list").appendChild(listItem);
+            document.getElementById("todo-input").value = ""; // Clear input field
+        }
+    }
+
+    // Delete exercise from the To-Do List
+    function deleteExercise(button) {
+        const listItem = button.parentElement;
+        listItem.remove();
+    }
+
+    // Add dragging functionality to the To-Do List modal
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    document.getElementById("todo-list-header").addEventListener("mousedown", (e) => {
+        isDragging = true;
+        offsetX = e.clientX - document.getElementById("todo-list-modal").offsetLeft;
+        offsetY = e.clientY - document.getElementById("todo-list-modal").offsetTop;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+            const todoListModal = document.getElementById("todo-list-modal");
+            todoListModal.style.left = (e.clientX - offsetX) + "px";
+            todoListModal.style.top = (e.clientY - offsetY) + "px";
+        }
+    });
+
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+    })
+    // Function to search exercises based on the input
+function searchExercises() {
+    // Get the value from the search bar and convert it to lowercase for case-insensitive search
+    const searchTerm = document.getElementById("search-bar").value.toLowerCase();
+    
+    // Get all the exercise cards
+    const exerciseCards = document.querySelectorAll(".exercise-card");
+
+    // Loop through each exercise card
+    exerciseCards.forEach(card => {
+        const exerciseName = card.getAttribute("data-name").toLowerCase(); // Get the exercise name
+
+        // If the exercise name contains the search term, show the card, otherwise hide it
+        if (exerciseName.includes(searchTerm)) {
+            card.style.display = "block";  // Show card
+        } else {
+            card.style.display = "none";  // Hide card
+        }
+    });
+}
+
+</script>
+</body>
+</html>
